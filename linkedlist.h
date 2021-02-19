@@ -15,7 +15,7 @@ int deletes( LLPtr *sPtr, int value );
 int isEmpty( LLPtr sPtr );
 void insert( LLPtr *sPtr, int value );
 void printList( LLPtr currentPtr );
-void printListR( LLPtr currentPtr);
+void printListReverse( LLPtr currentPtr);
 void instructions( void );
 
 
@@ -138,8 +138,8 @@ void printList( LLPtr currentPtr )
       puts( "NULL\n" );
    } // end else
 } // end function printList
-//printListR
-void printListR( LLPtr currentPtr )
+//printListReverse
+void printListReverse( LLPtr currentPtr )
 { 
    // if list is empty
    if ( isEmpty( currentPtr ) ) {

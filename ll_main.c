@@ -21,7 +21,7 @@ int main( )
             scanf( "%d", &item );
             insert( &startPtr, item ); // insert item in list
             printList( startPtr );
-            printListR( startPtr );
+            printListReverse( startPtr );
             break;
          case 2: // delete an element
             // if list is not empty
@@ -33,7 +33,7 @@ int main( )
                if ( deletes( &startPtr, item ) ) { // remove item
                   printf( "%d deleted.\n", item );
                   printList( startPtr );
-                  printListR( startPtr );
+                  printListReverse( startPtr );
                } // end if
                else {
                   printf( "%d not found.\n\n", item );
