@@ -41,7 +41,7 @@ void insert( LLPtr *sPtr, int value )
    if ( newPtr != NULL ) { // is space available
       newPtr->data = value; // place value in node
       newPtr->nextPtr = NULL; // node does not link to another node
-
+      newPtr->prevPtr = NULL
       previousPtr = NULL;
       currentPtr = *sPtr;
 
@@ -59,6 +59,7 @@ void insert( LLPtr *sPtr, int value )
       else { // insert new node between previousPtr and currentPtr
          previousPtr->nextPtr = newPtr;
          newPtr->nextPtr = currentPtr;
+         newPtr->prevPtr = previousPtr;
       } // end else
    } // end if
    else {
@@ -77,6 +78,9 @@ int deletes( LLPtr *sPtr, int value )
    if ( value == ( *sPtr )->data ) { 
       tempPtr = *sPtr; // hold onto node being removed
       *sPtr = ( *sPtr )->nextPtr; // de-thread the node
+      if (*sPtr !=NULL){
+         (*sPtr)->prevPtr = NULL;
+      }
       free( tempPtr ); // free the de-threaded node
       return value;
    } // end if
@@ -125,5 +129,30 @@ void printList( LLPtr currentPtr )
       } // end while
 
       puts( "NULL\n" );
+   } // end else
+} // end function printList
+//printlist r
+void printList( LLPtr currentPtr )
+{ 
+   // if list is empty
+   if ( isEmpty( currentPtr ) ) {
+      puts( "List is empty.\n" );
+   } // end if
+   else { 
+      puts( "The list is:" );
+
+      // while not the end of the list
+      while ( currentPtr->nextPtr != NULL ) { 
+      
+         currentPtr = currentPtr->nextPtr;   
+      } // end while
+
+      puts( "NULL\n" );
+      while ( currentPtr != NULL ) { 
+         printf( "--> %d  ", currentPtr->data );
+         currentPtr = currentPtr->prevPtr;
+            
+      } // end while
+      printf("\n");
    } // end else
 } // end function printList
