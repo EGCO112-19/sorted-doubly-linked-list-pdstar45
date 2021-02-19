@@ -15,6 +15,7 @@ int deletes( LLPtr *sPtr, int value );
 int isEmpty( LLPtr sPtr );
 void insert( LLPtr *sPtr, int value );
 void printList( LLPtr currentPtr );
+void printListR( LLPtr currentPtr);
 void instructions( void );
 
 
@@ -41,7 +42,7 @@ void insert( LLPtr *sPtr, int value )
    if ( newPtr != NULL ) { // is space available
       newPtr->data = value; // place value in node
       newPtr->nextPtr = NULL; // node does not link to another node
-      newPtr->prevPtr = NULL
+      newPtr->prevPtr = NULL;
       previousPtr = NULL;
       currentPtr = *sPtr;
 
@@ -125,14 +126,14 @@ void printList( LLPtr currentPtr )
       // while not the end of the list
       while ( currentPtr != NULL ) { 
          printf( "%d --> ", currentPtr->data );
-         currentPtr = currentPtr->nextPtr;   
+         currentPtr = currentPtr->nextPtr; //รันไปหาค่ามากกว่า  
       } // end while
 
       puts( "NULL\n" );
    } // end else
 } // end function printList
-//printlist r
-void printList( LLPtr currentPtr )
+//printListR
+void printListR( LLPtr currentPtr )
 { 
    // if list is empty
    if ( isEmpty( currentPtr ) ) {
@@ -144,15 +145,15 @@ void printList( LLPtr currentPtr )
       // while not the end of the list
       while ( currentPtr->nextPtr != NULL ) { 
       
-         currentPtr = currentPtr->nextPtr;   
+         currentPtr = currentPtr->nextPtr; //รันไปหาค่ามากสุด  
       } // end while
 
-      puts( "NULL\n" );
+      puts( "NULL" );
       while ( currentPtr != NULL ) { 
          printf( "--> %d  ", currentPtr->data );
-         currentPtr = currentPtr->prevPtr;
+         currentPtr = currentPtr->prevPtr;//รันไปหาค่าที่น้อยกว่า
             
       } // end while
-      printf("\n");
+      puts( "\n" );
    } // end else
 } // end function printList
