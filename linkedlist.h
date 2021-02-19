@@ -101,6 +101,9 @@ int deletes( LLPtr *sPtr, int value )
       // delete node at currentPtr
       if ( currentPtr != NULL ) { 
          tempPtr = currentPtr;
+         if(currentPtr->nextPtr != NULL){
+         currentPtr->nextPtr->prevPtr = previousPtr; 
+         } // end if
          previousPtr->nextPtr = currentPtr->nextPtr;
          free( tempPtr );
          return value;
