@@ -62,6 +62,9 @@ void insert( LLPtr *sPtr, int value )
          newPtr->nextPtr = currentPtr;
          newPtr->prevPtr = previousPtr;
       } // end else
+       if(currentPtr != NULL){
+        currentPtr->prevPtr=newPtr;
+      }// end if
    } // end if
    else {
       printf( "%d not inserted. No memory available.\n", value );
