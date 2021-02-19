@@ -148,7 +148,7 @@ void printListR( LLPtr currentPtr )
          currentPtr = currentPtr->nextPtr; //รันไปหาค่ามากสุด  
       } // end while
 
-      puts( "NULL" );
+      printf( "NULL" );
       while ( currentPtr != NULL ) { 
          printf( "--> %d  ", currentPtr->data );
          currentPtr = currentPtr->prevPtr;//รันไปหาค่าที่น้อยกว่า

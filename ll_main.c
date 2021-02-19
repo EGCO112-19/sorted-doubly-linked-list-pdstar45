@@ -33,6 +33,7 @@ int main( )
                if ( deletes( &startPtr, item ) ) { // remove item
                   printf( "%d deleted.\n", item );
                   printList( startPtr );
+                  printListR( startPtr );
                } // end if
                else {
                   printf( "%d not found.\n\n", item );
